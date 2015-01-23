@@ -2,7 +2,8 @@
 __author__ = 'kiwi'
 
 # This is the begining of my learning from Python :)
-print('''123 Let us go!''')  # ? why we cannot use double quote marks here
+print('''123 Let us go!''')
+# ? why we cannot use double quote marks here
 print("J'aime %s" % 'Xqq')
 birthday_month = 'december'  # the month of the birthday month
 print('my birthday is in %s' % birthday_month)
@@ -17,7 +18,8 @@ dollars = 4.99  # no currency symbol in the value
 print 'but now is', dollars, '- _ -|||'
 # page 47
 print type(dollars)
-print type(1)  # ?  why it shows <class'int'> in the book
+print type(1)
+# ?  why it shows <class'int'> in the book
 
 '''
 check point
@@ -114,7 +116,8 @@ print('e is used for: ', format(234465254.349, '.2e'))  # scientific notation, k
 print ('E is used for: ', format(234465254.349, ' E'))  # E is the same as e indicating the exponent
 print('insert a comma here for thousand point: ', format(234465254.349, ',.3f'))
 print ('leave the space before the number at about 10 space, you can use it without a comma, too, just incase :O ')
-print (format(234465254.349, '7,.3f'))  #? no space leave here???
+print (format(234465254.349, '7,.3f'))
+ #? no space leave here???
 print('the space control would be made by python automatically to make the dot at the same location')
 print('we can display \'%\' as the symbol now! ', format(0.65, '.0%'))
 print('here is the integer: ', format(1236787643, 'd'))
@@ -124,4 +127,13 @@ c c b b a / c a b d a / b d b a a / c a b a b
 True or False
 T T F T F
 short answer
+1. answered
+2. the natural language was written as the program language
+3.
+4. the float would be the result
+5. the floating point division is the / which would be type float in the result and keep it as the float
+the integer is the number which displayed the result as the integer without any decimal
+Algothm Workbench
+1. input()
+
 '''
