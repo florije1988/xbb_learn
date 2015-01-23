@@ -99,7 +99,7 @@ print int(-2.9)  # -2 because it just cut the decimal
 2.20 the result is: 4
 2.21   the result is: 1
 '''
-# ? print 'XDD', end ==' ' end is the unresolve reference here
+# ？? print 'XDD', end ==' ' end is the unresolve reference here
 print ('XFF\nILY')
 # ? print ('un', 'deux', 'trois', sep='') sep does not identified ?
 print('Hello!\there is yours\tdo you want to have a look\n i believe you \\want to say \"no\" isn\'t it?')
