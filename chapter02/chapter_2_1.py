@@ -123,7 +123,7 @@ print ('E is used for: ', format(234465254.349, ' E'))  # E is the same as e ind
 print('insert a comma here for thousand point: ', format(234465254.349, ',.3f'))
 print ('leave the space before the number at about 10 space, you can use it without a comma, too, just incase :O ')
 print (format(234465254.349, '7,.3f'))
- #? no space leave here???
+ #? no space leave here???  # 自己想办法啦！！！不要这么怕尝试
 print('the space control would be made by python automatically to make the dot at the same location')
 print('we can display \'%\' as the symbol now! ', format(0.65, '.0%'))
 print('here is the integer: ', format(1236787643, 'd'))
