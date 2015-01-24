@@ -20,6 +20,8 @@ print 'but now is', dollars, '- _ -|||'
 print type(dollars)
 print type(1)
 # ?  why it shows <class'int'> in the book
+# 小笨蛋啦，人家都是在terminal里面运行的啊，上次不是教给你怎么在pycharm里面使用terminal了么
+
 
 '''
 check point
@@ -44,6 +46,7 @@ check point
 '''
 opening = int(input('Bonjour! Please enter number here: '))  # input(promp) a string displays on the screen
 # ? cannot display a string , why ????
+# 小笨蛋，告诉过你了啦，这个的说是说你是传入什么值就要写成标准的格式啦比如说字符串要写成("小笨笨")
 
 print 'The variable is: ', opening
 
@@ -54,13 +57,14 @@ print dollars_float
 # get the user's credit card number, name and expire date
 card_number = int(input('Please enter your card number here: '))
 # ? ! cannot enter the string from input here
+# 上面告诉过你了。
 name = raw_input('Please enter your full name here: ')
 expireDate = input('please enter the expire month and year here: [for example: 1215 or 123]')
 # Display the data
 print('Here is the data you entered: '), 'card_number', card_number, \
     'name', name, ('expireDate %s' % expireDate)
 print 'integer division', 8 // 2
-print 'division', 7 / 5  # ? no different here
+print 'division', 7 / 5  # ? no different here  课本上是针对python3 的，这里是python 2
 min_rate = 2.33
 hour_input = 2.345
 min_input = 23
@@ -102,8 +106,10 @@ print int(-2.9)  # -2 because it just cut the decimal
 2.21   the result is: 1
 '''
 # ？? print 'XDD', end ==' ' end is the unresolve reference here？？ why
+# 不知道你要干嘛……你不知道怎么定义么？？？先定义在使用！！！
 print ('XFF\nILY')
 # ? print ('un', 'deux', 'trois', sep='') sep does not identified ?
+# 你到底在干嘛！！！在这么随意写代码，就打你了！
 print('Hello!\there is yours\tdo you want to have a look\n i believe you \\want to say \"no\" isn\'t it?')
 print 'XDD is ' + \
       'really smart!'
@@ -137,3 +143,7 @@ Algothm Workbench
 1. input()
 
 '''
+
+
+# 你暂时不用管理input，这个在python 3里面已经统一了，还有字符串的部分。在python 2 里面是区分input以及raw_input的。
+#
