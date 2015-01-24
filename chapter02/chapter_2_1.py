@@ -19,9 +19,6 @@ print 'but now is', dollars, '- _ -|||'
 # page 47
 print type(dollars)
 print type(1)
-# ?  why it shows <class'int'> in the book
-# 小笨蛋啦，人家都是在terminal里面运行的啊，上次不是教给你怎么在pycharm里面使用terminal了么
-
 
 '''
 check point
@@ -45,7 +42,6 @@ check point
 2.16 0
 '''
 opening = int(input('Bonjour! Please enter number here: '))  # input(promp) a string displays on the screen
-# ? cannot display a string , why ????
 # 小笨蛋，告诉过你了啦，这个的说是说你是传入什么值就要写成标准的格式啦比如说字符串要写成("小笨笨")
 
 print 'The variable is: ', opening
@@ -56,8 +52,7 @@ dollars_float = float(dollars_int)
 print dollars_float
 # get the user's credit card number, name and expire date
 card_number = int(input('Please enter your card number here: '))
-# ? ! cannot enter the string from input here
-# 上面告诉过你了。
+
 name = raw_input('Please enter your full name here: ')
 expireDate = input('please enter the expire month and year here: [for example: 1215 or 123]')
 # Display the data
@@ -108,7 +103,6 @@ print int(-2.9)  # -2 because it just cut the decimal
 # ？? print 'XDD', end ==' ' end is the unresolve reference here？？ why
 # 不知道你要干嘛……你不知道怎么定义么？？？先定义在使用！！！
 print ('XFF\nILY')
-# ? print ('un', 'deux', 'trois', sep='') sep does not identified ?
 # 你到底在干嘛！！！在这么随意写代码，就打你了！
 print('Hello!\there is yours\tdo you want to have a look\n i believe you \\want to say \"no\" isn\'t it?')
 print 'XDD is ' + \
@@ -123,7 +117,7 @@ print ('E is used for: ', format(234465254.349, ' E'))  # E is the same as e ind
 print('insert a comma here for thousand point: ', format(234465254.349, ',.3f'))
 print ('leave the space before the number at about 10 space, you can use it without a comma, too, just incase :O ')
 print (1, format(5254.349, '7,.3f'), 3)
- #? no space leave here???
+# ? no space leave here???
 print('the space control would be made by python automatically to make the dot at the same location')
 print('we can display \'%\' as the symbol now! ', format(0.65, '.0%'))
 print('here is the integer: ', format(1236787643, 'd'))
@@ -139,11 +133,52 @@ short answer
 4. the float would be the result
 5. the floating point division is the / which would be type float in the result and keep it as the float
 the integer is the number which displayed the result as the integer without any decimal
-Algothm Workbench
-1. input()
-
 '''
-
+# Algothm Workbench  page 76
+#1
+height = raw_input('Please enter your height by number here: (unit is meter)')
+print height
+#2
+colour = raw_input('Please enter your favourite colour here: ')
+print colour
+#3
+a = raw_input('please enter the number here: ')
+a = ((4 * (a + 2)) / 3.14) - 8
+#4
+w = 5
+x = 4
+y = 8
+z = 2
+print 'x', x, 'y', y, 'z', z, 'w', w
+print 'x + y is ', x + y
+print 'z * 2 is ', z * 2
+print 'y/x is', y/x
+print 'y-z is', y-z
+print 'w//z is ', w//z
+#5
+total = 10 + 14
+print total
+#6
+down_payment = 0
+due = total - down_payment
+#7
+subtotal = total / 0.15
+print total
+# 8
+a = 5
+b = 12
+c = 30
+result = a + b + c
+print 'The result is: ', result
+#9 the following disaplys is 5
+#10
+sale = format(24.34724, '.2f')
+print sale
+#11
+number = 13234876.238467
+print 'The number in question 11 is ',format(number, ',.1f')
+#12 George@John@Paul@Ringo
 
 # 你暂时不用管理input，这个在python 3里面已经统一了，还有字符串的部分。在python 2 里面是区分input以及raw_input的。
-#
+# Programming Exercises
+# 1 personal information
