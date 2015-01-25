@@ -135,26 +135,26 @@ short answer
 the integer is the number which displayed the result as the integer without any decimal
 '''
 # Algothm Workbench  page 76
-#1
+# 1
 height = raw_input('Please enter your height by number here: (unit is meter)')
 print height
-#2
+# 2
 colour = raw_input('Please enter your favourite colour here: ')
 print colour
 #3
-a = raw_input('please enter the number here: ')
+a = int(raw_input('please enter the number here for calculation : '))
 a = ((4 * (a + 2)) / 3.14) - 8
 #4
 w = 5
 x = 4
 y = 8
 z = 2
-print 'x', x, 'y', y, 'z', z, 'w', w
+print 'x = ', x, 'y = ', y, 'z =', z, 'w = ', w
 print 'x + y is ', x + y
 print 'z * 2 is ', z * 2
-print 'y/x is', y/x
-print 'y-z is', y-z
-print 'w//z is ', w//z
+print 'y/x is', y / x
+print 'y-z is', y - z
+print 'w//z is ', w // z
 #5
 total = 10 + 14
 print total
@@ -173,12 +173,114 @@ print 'The result is: ', result
 #9 the following disaplys is 5
 #10
 sale = format(24.34724, '.2f')
-print sale
+print 'The sale is: ', sale
 #11
 number = 13234876.238467
-print 'The number in question 11 is ',format(number, ',.1f')
+print 'The number in question 11 is ', format(number, ',.1f')
 #12 George@John@Paul@Ringo
 
 # 你暂时不用管理input，这个在python 3里面已经统一了，还有字符串的部分。在python 2 里面是区分input以及raw_input的。
 # Programming Exercises
 # 1 personal information
+print 'My name is "Lelouch Vi Britannia"'
+print 'The address is (ignore the place) Britannia , Zip is 1205 '
+print 'My celphone number is 1-888-888-8888'
+print 'My colege major is computer science'
+# 2  sales prediction
+print '2  sales prediction'
+totalSales = float(raw_input("Please enter the number of total sale here: "))
+annualProfits = .23 * totalSales
+print annualProfits
+# 3 land calculation
+print '3 land calculation'
+areaLand = 43.560  # The unit is sauqre feet
+toalSquareFeet = float(raw_input('please enter the number of toal square feet in a tract of land: '))
+number_acres = toalSquareFeet / areaLand
+print number_acres
+
+
+#4  Total Purchase
+print '4  Total Purchase'
+
+
+def enter_price(number):
+    tax = float(6.00 / 100)
+    toalPrice = number * (1 + tax)
+    return toalPrice
+
+
+item1 = enter_price(float(raw_input('Please enter the item 1\'s price of each item here: ')))
+item2 = enter_price(float(raw_input('Please enter the item 2\'s price of each item here: ')))
+item3 = enter_price(float(raw_input('Please enter the item 3\'s price of each item here: ')))
+item4 = enter_price(float(raw_input('Please enter the item 4\'s price of each item here: ')))
+item5 = enter_price(float(raw_input('Please enter the item 5\'s price of each item here: ')))
+subtotalPrice = float(item1 + item2 + item3 + item4 + item5)
+print subtotalPrice
+
+
+# 5 Distance Traveled
+def distance(Time):
+    Speed = 60
+    Distance = Speed * Time
+    return Distance
+
+
+print 'The distance the car will tralvel in 5 hours is: ', distance(5), 'miles'
+print 'The distance the car will tralvel in 8 hours is: ', distance(8), 'miles'
+print 'The distance the car will tralvel in 12 hours is: ', distance(12), 'miles'
+
+# 6 sales Tax Page 78
+print '6 sales Tax'
+purchase = float(raw_input('Please enter the amount of a purchase: '))
+stateSalesTax = float(4.00 / 100)
+countrySaleTax = float(2.00 / 100)
+totalSaleTax = stateSalesTax + countrySaleTax
+total_sale = purchase * (1.00 + totalSaleTax)
+print 'purchase is ', purchase
+print 'stateSalesTax is ', stateSalesTax
+print 'countrySaleTax is ', countrySaleTax
+print 'totalSaleTax is ', totalSaleTax
+print 'total_sale is ', total_sale
+
+#7 Miles-per-Gallon
+print '7 Miles-per-Gallon'
+mile = float(raw_input('Please enter the number of miles driven: '))
+gallons = float(raw_input('Please enter the number of gallons of gas used: '))
+MPG = float(mile / gallons)
+print 'The car\'s MPG is:', MPG
+
+#8 Tip, Tax and Total
+print '8 Tip, Tax and Total '
+food = float(raw_input('Please enter the number of charge for the food here: '))
+tip = float(15.00 / 100)
+tax = float(7.00 / 100)
+total = float(food * (1 + tip + tax))
+print 'The amount of food here is: ', food
+print 'The percentage of tip here is: %f' % tip
+print 'The percentage of tax here is: %f' % tax
+print 'The total amount of food is: ', total
+
+# 9 Celsius to Fahrenheit Temperature Converter
+print '9 Celsius to Fahrenheit Temperature Converter'
+C = float(raw_input('Please enter a temperature in celsius here: '))
+F = (9.00 / 5) * C + 32
+print 'The result of converting the %f Celsius to Fahrenheit Temperature is: ' % C, F
+
+# 10 Stock Transaction Program (page 78-79)
+print '10 Stock Transaction Program'
+sharesJoe = 1000
+stockJoe = 32.87 * sharesJoe  # unit is $ per share
+stockbroker = (2.00 / 100) * stockJoe
+toalStockBought = float(stockJoe - stockbroker)
+# two week later
+sharesJoeSold = 1000
+stockJoeSold = 33.92 * sharesJoe # unit is $ per share
+stockbrokerPaid = (2.00 / 100) * stockJoeSold
+toalStockSold = float(stockJoeSold - stockbrokerPaid)
+print 'The amount of money Joe paid for the stock: %.2f' % stockJoe
+print 'The amount of commission Joe paid his broker when he bought the stock : %.2f' % stockbroker
+print 'The amount that Joe sold the stock for: %.2f' % stockJoeSold
+print 'The amount of commission Joe paid his broker when he sold the stock: %.2f' % stockbrokerPaid
+print 'The amount of money that Joe had left when he sold the stock and paid his broker is: %.2f' \
+      % (toalStockSold - toalStockBought)
+print 'If this amount is positive, then Joe made a profit. If the amount is negative, then Joe lost money.'
