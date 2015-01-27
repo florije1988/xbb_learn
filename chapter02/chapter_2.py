@@ -277,6 +277,7 @@ sharesJoeSold = 1000
 stockJoeSold = 33.92 * sharesJoe # unit is $ per share
 stockbrokerPaid = (2.00 / 100) * stockJoeSold
 toalStockSold = float(stockJoeSold - stockbrokerPaid)
+
 print 'The amount of money Joe paid for the stock: %.2f' % stockJoe
 print 'The amount of commission Joe paid his broker when he bought the stock : %.2f' % stockbroker
 print 'The amount that Joe sold the stock for: %.2f' % stockJoeSold
