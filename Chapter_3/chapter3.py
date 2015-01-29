@@ -14,11 +14,12 @@ def print_XDD():
     print 'You are XDD'
     print print_XBB()
 
+
 def print_XBB():
     print 'who is XBB here? '
     print "No one knows !!"
 
-print_XDD()
+# print_XDD()
 '''
 checkpoint page 89
 3.6 A function definition has two parts. They are: the head of the function and the statement.
@@ -31,6 +32,47 @@ block are ignored.When the function is at the function's block, it finishes runn
 3.9 the reason that i indent the statement in a block is: the sign of ending the function running
 '''
 # 91 Hlerarchy(structure) chart: logical chart <-- top down design (only one line )
+# page 97 variables' scope
+def print_all():
+    print_XBB()
+    print_XBB()
+    print_XDD()
+
+# print_all()
+
+'''
+page 97 check point
+3.10 the loval variables is the vaiables was chreate and can be used and only be accessed within the function
+the local variable can be restricted by calling the function
+3.11 The variable's scope is part of program that the variables can be accessed
+3.12 It isn't permissible for a local variable in one function to have the same name as a local variable in a different
+function
+'''
 
 
+def reputation_XDD(adjective):
+    print 'the reputation that i have for XDD is %s' % adjective
+    return adjective
 
+
+# reputation_XDD('Kawaiine')
+
+# page 100 IN the spotlight:
+# the function convert cups to fluid ounces
+def intro():
+    #1. Display an introductory screen that explains what the program does.
+    print 'This program is going to convert the cups to fluid ounces '
+    print('reference the formula is:')
+    print(' 1 cup = 8 fluid ounces')
+    number_of_cups = int(raw_input('Please enter the numbers of cups here for converting: '))
+    print 'The number of cups that you enter is: %s ' % number_of_cups
+    print 'The ounce after converting is %s ' % cups_to_ounces(number_of_cups)
+
+
+def cups_to_ounces(number_of_cups):
+    number_of_ounce = number_of_cups * 8
+    return number_of_ounce
+
+
+intro()
+# 102
