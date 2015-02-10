@@ -70,9 +70,9 @@ def intro():
 
 
 def cups_to_ounces(number_of_cups):
+# "header" ("(number of cups)" is the parameter list and the number of cups is the argument [pass  position] )
     number_of_ounce = number_of_cups * 8
     return number_of_ounce
-
-
 intro()
+
 # 102
