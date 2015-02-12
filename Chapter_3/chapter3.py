@@ -33,6 +33,8 @@ block are ignored.When the function is at the function's block, it finishes runn
 '''
 # 91 Hlerarchy(structure) chart: logical chart <-- top down design (only one line )
 # page 97 variables' scope
+
+
 def print_all():
     print_XBB()
     print_XBB()
@@ -60,7 +62,7 @@ def reputation_XDD(adjective):
 # page 100 IN the spotlight:
 # the function convert cups to fluid ounces
 def intro():
-    #1. Display an introductory screen that explains what the program does.
+    # 1. Display an introductory screen that explains what the program does.
     print 'This program is going to convert the cups to fluid ounces '
     print('reference the formula is:')
     print(' 1 cup = 8 fluid ounces')
@@ -70,9 +72,11 @@ def intro():
 
 
 def cups_to_ounces(number_of_cups):
-# "header" ("(number of cups)" is the parameter list and the number of cups is the argument [pass  position] )
+    # "header" ("(number of cups)" is the parameter list and the number of cups is the argument [pass  position] )
     number_of_ounce = number_of_cups * 8
     return number_of_ounce
+
+
 intro()
 
 # 102
