@@ -71,12 +71,69 @@ def intro():
     print 'The ounce after converting is %s ' % cups_to_ounces(number_of_cups)
 
 
-def cups_to_ounces(number_of_cups):
+def cups_to_ounces(number_of_cup):  # parameter_name is the number of the cup
     # "header" ("(number of cups)" is the parameter list and the number of cups is the argument [pass  position] )
-    number_of_ounce = number_of_cups * 8
+    number_of_ounce = number_of_cup * 8
     return number_of_ounce
 
 
-intro()
+def calculate_product():  # 'pass by value' from parameter
+    milk = cups_to_ounces(number_of_cup=4)
+    print 'The volumn of milk is: ', milk, 'ounces. '
+    tomato_sauce = cups_to_ounces(number_of_cup=1)
+    print 'The volumn of tomato sauce is: ', tomato_sauce, 'ounces. '
+    drink = cups_to_ounces(number_of_cup=10)
+    print 'The volumn of drink is : ', format(drink, ',.2f'), 'ounces. '
 
-# 102
+# page 106: print('The simple interest will be $', format(interest, ',.2f'),  sep='')
+# sep = '' is the syntax error , in python 3 ??
+
+'''
+page 107 checkpoint
+3.13    keyword argument
+3.14    parameter
+3.15    the valid value for passing by
+3.16    the changes of value of parameters , yes it does when it is the pass by position
+3.17    a is the statements passes by position and b is the keyword arguments
+'''
+my_value = 10
+
+
+def print_out():
+    print 'my value is: ', my_value
+
+
+print_out()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
