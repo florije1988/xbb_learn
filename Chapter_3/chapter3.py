@@ -102,11 +102,18 @@ my_value = 10
 def print_out():
     print 'my value is: ', my_value
 
-
 print_out()
 
+def global_name():
+    global my_value
+    my_value = int(raw_input('Input my value here: '))
+    print 'The input my value is: ', my_value
+    show_number()
 
+def show_number():
+    print 'My value is: ', my_value
 
+global_name()
 
 
 
