@@ -156,6 +156,7 @@ total_sales()
 # 2. Lottery Number Generator
 def lottery_number():
     import random
+
     number = 0
     run = 0
     random_list = []
@@ -174,19 +175,79 @@ def rainfall_statistics():
     rain_fall_list = [0]
 
     for i in range(12):
-        print 'enter',i,'month\'s rainfall below'
+        print 'enter', i, 'month\'s rainfall below'
         rain_fall = int(raw_input('Input rainfall: '))
         rain_fall_list.append(rain_fall)
         rain_fall_list[0] = rain_fall_list[0] + rain_fall
-    ave_rainfall = format(float(rain_fall_list[0])/12.00, ',.2f')
+    ave_rainfall = format(float(rain_fall_list[0]) / 12.00, ',.2f')
     rain_fall_list = rain_fall_list[1:]
     print ave_rainfall
-    print min(rain_fall_list),max(rain_fall_list)
+    print min(rain_fall_list), max(rain_fall_list)
+
+
 rainfall_statistics()
 
 # 4.Number Analysis Program
 def number_analysis():
     total_num = 0
+    number_list = []
+    for times in range(20):
+        number = int(raw_input('input number: '))
+        number_list.append(number)
+        total_num += number
+    average_num = total_num / len(number_list)
+    print min(number_list)
+    print max(number_list)
+    print total_num
+    print average_num
+
+
+number_analysis()
+# 5. Charge Account Validation
+def charge_account():
+    input_number = int(raw_input('input number: '))
+    charge_account_file = open('charge_accounts.txt', 'r')
+    for line in charge_account_file.readlines:
+        charge_account_file.readline().strip('\n')
+        if line == input_number:
+            print 'valid number'
+        else:
+            print 'invalid number'
+    print charge_account_file.realines()
+
+
+charge_account()
+
+# 6 Driver’s License Exam
+def lisence_exam():
+    correct_answer_list = ['B', 'D', 'A', 'A', 'C', 'A', 'B', 'A', 'C', 'D', 'B', 'C', 'D', 'A', 'D', 'C', 'C',
+                           'B', 'D', 'A']
+    incorrect_answer_number = []
+    incorrect_answer_list = []
+    user_answer_list = []
+    correct = 0
+    for times in range(20):
+        print 'number', times, ': '
+        user_answer_list.append(raw_input('input answer: '))
+        if user_answer_list[times] == correct_answer_list[times]:
+            correct += 1
+        else:
+            incorrect_answer_number.append(times)
+            incorrect_answer_list.append(correct_answer_list[times])
+    print 'correct: ', correct
+    print 'incorrect: ', 20 - correct
+    print 'incorrect_answer_number', '\t', 'incorrect_answer_list'
+    print incorrect_answer_number, '\t', incorrect_answer_list
+    if correct >= 15:
+        print 'pass the exam'
+    else:
+        print 'fail'
+lisence_exam()
+# 7. Name Search page 339
+def name_search():
+    girl_name = open('GirlNames.txt','r').readlines()
+    boy_name = open('BoyNames.txt','r').readlines()
+
 
 
 
