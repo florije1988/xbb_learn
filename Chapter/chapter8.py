@@ -242,69 +242,47 @@ def lisence_exam():
         print 'pass the exam'
     else:
         print 'fail'
+
+
 lisence_exam()
 # 7. Name Search page 339
 def name_search():
-    girl_name = open('GirlNames.txt','r').readlines()
-    boy_name = open('BoyNames.txt','r').readlines()
+    girl_name = open('GirlNames.txt', 'r').readlines()
+    boy_name = open('BoyNames.txt', 'r').readlines()
+    input_name = raw_input('input Name: ')
+    for input_name in girl_name or boy_name:
+        print 'the names were among the most popular.'
+    print 'the names weren\'t among the most popular.'
 
 
+# name_search()
+
+# 8. Population Data
+def population_data():
+    open_file = open('USPopulation.txt', 'r').realines()
+    population_list = []
+    increase_rate = []
+    runs = 0
+    for line in open_file:
+        runs += 1
+        population_list.append(line)
+        if runs > 1:
+            increase_rate.append((population_list[runs] - population_list[runs - 1]) / population_list[runs - 1])
+    print 'population_list is ', population_list
+    print 'The year with the greatest increase in population during the time period', max(increase_rate)
+    print 'The year with the smallest increase in population during the time period', min(increase_rate)
 
 
+population_data()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+# 9. World Series Champions
+def world_s_chamption():
+    open_file = open('WorldSeriesWinners.txt','')
+    year = 1903
+    enter_name = raw_input('enter name: ')
+    while open_file.realine != ''and year <= 2009:
+        year+=1
+        if enter_name == open_file.readline():
+            print 'year', year
+world_s_chamption()
+#?? what is different between file.readlines and file.realines()
