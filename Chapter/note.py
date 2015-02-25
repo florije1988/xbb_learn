@@ -1,4 +1,3 @@
-
 __author__ = 'kiwi'
 
 
@@ -11,7 +10,7 @@ def bublesort(alist):
             if alist[i] > alist[i + 1]:
                 alist[i], alist[i + 1] = alist[i + 1], alist[i]
                 swap = True
-                end = end - 1
+                end -= 1
 
 
 def aotherone(alist):
@@ -62,3 +61,31 @@ if __name__ == '__main__':
     # run the function here
     mylist = [2, 3, 3, 4, 6, 3, 4, 6, 1]
     example(mylist=mylist)
+
+'''
+comlexity:
+complexity of a loop = (# of loop runs) * (complexity of the inside)
+if statement (O(n))--> highest complexity of if, elif, else (inside if for loop)
+LOOP O(n)
+consecutive code --> O(X) O(Y)  MAX (O(X),O(Y)  )
+
+sorting: 4
+bubble, beach, selective, binary sort
+
+'''
+
+
+def loop():
+    mylist = [2, 3, 3, 4, 6, 3, 4, 6, 1]
+    n = len(mylist)
+    for i in mylist:
+        for k in mylist:
+            for j in mylist:
+                print i, j, k
+    while True:
+        n = n / 2  # log x
+    return i, j, k
+
+
+loop()
+# ???? if complexity is n^3 or n^2 here
