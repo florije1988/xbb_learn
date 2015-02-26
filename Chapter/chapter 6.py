@@ -41,6 +41,7 @@ def repeat_value():
 
 # repeat_value()
 # ? different between random.randint() & random.randrange() & random/uniform()
+#  http://blog.sina.com.cn/s/blog_470302440100ev9e.html
 '''
 page 213 checkpoint
 6.1 the value returning can return the value back to the result of function for displaying or passing the value to
