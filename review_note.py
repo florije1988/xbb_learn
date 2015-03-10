@@ -139,9 +139,34 @@ bubble sort: swap two between item
 
 Selection sort: each pass, find the minimum number for selection sort
 
-insertion sort: find the minimum in the list and then put it into the specific location they needs to , for example, find the minimum put it into first place in the first pass
+insertion sort: find the minimum in the list and then put it into the specific location they needs to , for example,
+find the minimum put it into first place in the first pass
 
 only float times float
+
+
+'''
+
+'''
+Midterm review  Jones
+1
+y = x x and y is string, it doesn't copy by syn the string
+
+2
+string is immutable when 'dog'[1] = 'T' does effect at all
+
+3
+for the if-elif-else: once the condition fitting one of them in the front, the executing for this statement is end
+
+4c
+selection sort
+
+
+9
+worst case: O(n)
+
+
+
 
 
 '''
