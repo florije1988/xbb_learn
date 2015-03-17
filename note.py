@@ -162,7 +162,6 @@ def delete_node(linked_list, value):
         # delete from middle of list
         # delete the 1st mode(The head)
 
-
     return linked_list
 
 
@@ -195,8 +194,37 @@ if __name__ == '__main__':
     main()
 
 
+# recursion:the function return(call) to itself (ex. christmas box unwrapping):
+# 2 parts:base case--> termination; Recursive Case --> call same function with identical smaller problem
+# (depend on the problem size within function),the condition to make it stops
+def roll_dice():
+    import random
+
+    dice1 = random.randint(0, 6)
+    dice2 = random.randint(0, 6)
+    print dice1 + dice2
+    if dice1 + dice2 == 7:
+        return roll_dice()
 
 
+# binary search divide the list into the medium(maybe not just one ) , less than medium and larger than medium
+# use the first number to sort again
+
+def qucik_sort(a_list):
+    run = 0
+    for i in a_list:
+        run += 1
+        if run == 1:
+            medium = [i]
+            min = []
+            max = []
+        elif i > medium:
+            min = min.append(i)
+        elif i == medium:
+            medium = medium.append(i)
+        else:
+            max = max.append(i)
+    return
 
 
 
