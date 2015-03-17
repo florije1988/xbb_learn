@@ -209,8 +209,10 @@ def roll_dice():
 
 # binary search divide the list into the medium(maybe not just one ) , less than medium and larger than medium
 # use the first number to sort again
+# quick sort is the sort that depend on the middle number to separate the item to the left that is the less number
+#  and to the right that is the larger number number there is no number need to be sort
 
-def qucik_sort(a_list):
+def qucik_sort(a_list):  # complexity is nlog(n)
     run = 0
     for i in a_list:
         run += 1
@@ -227,8 +229,45 @@ def qucik_sort(a_list):
     return
 
 
+'''
+sort the first half: 3 and 2 (break down to sort until there is one element remain)
+if there is one element, then make it as the list such as [40]
+'''
 
 
+def merge(list1, list2):
+    result = []
+    i, j = 0, 0  # the location is different for the list after soring and select on out from the origin list
+    while i < len(list1) and j < len(list2):
+        if list1[i] < list2[j]:  # append the larger one into the newlist
+            result.append(list2[i])
+            i += 1
+        else:
+            result.append(list1[j])
+            j += 1
+    result += list1[i:]  # add the rest of the left when some left after right is ru out by sorting into the result
+    result += list2[j:]  # same as above but right
+    return result
+
+
+'''
+    list1 = [6,12,14]
+    list2 = [4,9]
+    this two list has been sort, and then begin with the first one, if the one within this two list is smaller,
+    append it into the new list, sort from one item to the whole length of the list
+'''
+
+
+def mergesort(alist):
+    if len(alist) < 2:
+        return alist
+    else:
+        mid = len(alist) / 2
+        left = mergesort([alist[:mid]])
+        right = mergesort([alist[mid:]])
+        return merge(left, right)
+
+# complexity is O(nlog(n))
 
 
 
