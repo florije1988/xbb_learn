@@ -212,7 +212,7 @@ def roll_dice():
 # quick sort is the sort that depend on the middle number to separate the item to the left that is the less number
 #  and to the right that is the larger number number there is no number need to be sort
 
-def qucik_sort(a_list):  # complexity is nlog(n)
+def qucik_sort(a_list):  # complexity is nlog(n) for best case, and n^2 for worse case
     run = 0
     for i in a_list:
         run += 1
@@ -267,7 +267,13 @@ def mergesort(alist):
         right = mergesort([alist[mid:]])
         return merge(left, right)
 
-# complexity is O(nlog(n))
+# complexity is O(nlog(n)) for worst case and O(n) for the best case
+
+'''
+binary search(aList,svalue):
+
+
+'''
 
 
 
