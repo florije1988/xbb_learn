@@ -143,7 +143,7 @@ def change_node(linked_list):
 
 def search_node(linked_list, value):
     search_list = linked_list
-    while linked_list != None and linked_list['data'] != value:
+    while linked_list is not None and linked_list['data'] != value:
         linked_list = linked_list['next']
     return search_list
 
@@ -187,13 +187,13 @@ def main():
         print 'node doesn\'t found'
     change_node(linked_list=my_list)
 
-    print insert_node(linked_list=my_list, value=10, new_value1000)
+    print insert_node(linked_list=my_list, value=10, new_value=1000)
 
 
+'''
 if __name__ == '__main__':
     main()
-
-
+'''
 # recursion:the function return(call) to itself (ex. christmas box unwrapping):
 # 2 parts:base case--> termination; Recursive Case --> call same function with identical smaller problem
 # (depend on the problem size within function),the condition to make it stops
@@ -212,22 +212,23 @@ def roll_dice():
 # quick sort is the sort that depend on the middle number to separate the item to the left that is the less number
 # and to the right that is the larger number number there is no number need to be sort
 
+'''
 def quick(a_list):  # complexity is n*log(n) for best case, and n^2 for worse case
     run = 0
     for i in a_list:
         run += 1
         if run == 1:
             medium = [i]
-            min = []
-            max = []
+            min_list = []
+            min_list = []
         elif i > medium:
-            min = min.append(i)
+            min_list = min_list.append(i)
         elif i == medium:
             medium = medium.append(i)
         else:
-            max = max.append(i)
+            min_list = min_list.append(i)
     return
-
+'''
 
 '''
 sort the first half: 3 and 2 (break down to sort until there is one element remain)
@@ -271,8 +272,7 @@ def merge_sort(alist):
 
 '''
 binary search(aList,value):
-binary tree
-
+binary tree, split the list into the left,data, right
 
 '''
 
@@ -289,6 +289,31 @@ def add(tree, value):
     return tree
 
 
+def search(tree, search_value):
+    if tree == None:
+        return False
+    elif tree['data'] == search_value:
+        return True
+    elif search_value < tree['data']:
+        return search(tree['left'], search_value)
+    else:
+        return search(tree['right'], search_value)
+
+
+def find_maximum(tree):
+    if tree['right'] is None:
+        return tree['data']
+    return find_maximum(tree['right'])
+
+
+def height(tree):
+    if tree is None:
+        return 0
+    hl = height(tree['left'])  # hl is the left subtree
+    hr = height(tree['right'])
+    return 1 + max([hl, hr])
+
+
 def display(tree):
     if tree is None:
         print ''
@@ -299,26 +324,10 @@ def display(tree):
     print tree
 
 
+tree = None
+list = [20, 2, 25, 14, 75, 90]
+for d in list:
+    tree = add(tree, d)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+print find_maximum(tree)
+print height(tree)
