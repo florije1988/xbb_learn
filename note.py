@@ -3,7 +3,7 @@ __author__ = 'kiwi'
 
 # sorting
 
-def bublesort(a_list):
+def bubble_sort(a_list):
     swap = True
     end = len(a_list) - 1
     while swap:
@@ -15,7 +15,7 @@ def bublesort(a_list):
                 end -= 1
 
 
-def aother_one(a_list):
+def another_one(a_list):
     # The complexity is O(mn), if one of then is i = i/2, the choose the other one as the complexity
     n = len(a_list)
     m = n * 4
@@ -26,10 +26,10 @@ def aother_one(a_list):
 
 def mystery(a_list):
     for i in range(len(a_list) - 1, 0, -1):
-        positionofmax = 0
+        position_of_max = 0
         for location in range(1, i + 1):
-            if a_list[location] > a_list[positionofmax]:
-                a_list[positionofmax] = a_list[location]
+            if a_list[location] > a_list[position_of_max]:
+                a_list[position_of_max] = a_list[location]
 
 
 # complexity
@@ -65,7 +65,7 @@ if __name__ == '__main__':
     example(my_list=my_list)
 
 '''
-comlexity:
+complexity:
 complexity of a loop = (# of loop runs) * (complexity of the inside)
 if statement (O(n))--> highest complexity of if, elif, else (inside if for loop)
 LOOP O(n)
@@ -91,15 +91,15 @@ def loop():
 
 # node : linked list
 
-def creat_node(value):
+def create_node(value):
     node = {}
-    node['data'] = value  # mylist 10 --> None (node dictionary )
+    node['data'] = value  # my list 10 --> None (node dictionary )
     node['next'] = None
     return node  # {'data': value, 'next': None}
 
 
-def add_node_at_data(linked_List, value):
-    node = linked_List
+def add_node_at_data(linked_list, value):
+    node = linked_list
     head_node = {}
     head_node['data'] = value
     head_node['next'] = node
@@ -108,35 +108,35 @@ def add_node_at_data(linked_List, value):
 
 def print_node(linked_list):
     print_list = linked_list
-    while linked_list['next'] != None:
+    while linked_list['next'] is not None:
         print linked_list['data']
         linked_list = linked_list['next']
     print linked_list['data']
     return print_list
 
 
-def insert_node(linked_list, value, newvalue):
+def insert_node(linked_list, value, new_value):
     node_before = search_node(linked_list, value)  # find the node one before the location you want to insert
-    if node_before != None:  # avoid that the value can be searched in the search list
+    if node_before is not None:  # avoid that the value can be searched in the search list
 
         node_after = node_before['next']
-        new_node = creat_node(value=newvalue)  # create the node that the value you want to insert
+        new_node = create_node(value=new_value)  # create the node that the value you want to insert
         new_node['next'] = node_after
         node_before['next'] = new_node
         node_list = node_before
 
-        while linked_list != None and linked_list['data'] != value:
+        while linked_list is not None and linked_list['data'] != value:
             linked_list = linked_list['next']
-        if linked_list != None:
+        if linked_list is not None:
             linked_list['next'] = new_node
         return linked_list
 
 
 def change_node(linked_list):
     change_list = linked_list
-    while change_list != None:
+    while change_list is not None:
         if change_list['data'] % 2 == 0:  # even number
-            change_list['data'] = change_list['data'] + 1
+            change_list['data'] += 1
         change_list = change_list['next']
     return linked_list
 
@@ -151,9 +151,9 @@ def search_node(linked_list, value):
 # delete the node in the middle or at the head by specific value ()
 def delete_node(linked_list, value):
     delete_list = linked_list
-    if search_node(linked_list=linked_list, value=value) and delete_list != None:  # if value can be found
+    if search_node(linked_list=linked_list, value=value) and delete_list is not None:  # if value can be found
 
-        while delete_list['next']['data'] != value and delete_list['next'] != None:
+        while delete_list['next']['data'] != value and delete_list['next'] is not None:
             # empty list or value not found
             delete_list = delete_list['next']
         ptr = delete_list
@@ -168,26 +168,26 @@ def delete_node(linked_list, value):
 def list_length(linked_list):
     length_list = linked_list
     count = 0
-    while length_list != None:
+    while length_list is not None:
         count += 1
         length_list = length_list['next']
     return count
 
 
 def main():
-    my_list = creat_node(int(raw_input('input value for node: ')))
+    my_list = create_node(int(raw_input('input value for node: ')))
     my_list = add_node_at_data(my_list, value=10)
     my_list = add_node_at_data(my_list, value=20)
     my_list = add_node_at_data(my_list, value=30)
     print_node(my_list)
     node_1 = search_node(my_list, value=10)
-    if node_1 != None:  # avoid the return of node_1 is Node when the value cannot be found
+    if node_1 is not None:  # avoid the return of node_1 is Node when the value cannot be found
         print 'node contains: ', node_1['data']
     else:
         print 'node doesn\'t found'
     change_node(linked_list=my_list)
 
-    print insert_node(linked_list=my_list, value=10, newvalue=1000)
+    print insert_node(linked_list=my_list, value=10, new_value1000)
 
 
 if __name__ == '__main__':
@@ -210,9 +210,9 @@ def roll_dice():
 # binary search divide the list into the medium(maybe not just one ) , less than medium and larger than medium
 # use the first number to sort again
 # quick sort is the sort that depend on the middle number to separate the item to the left that is the less number
-#  and to the right that is the larger number number there is no number need to be sort
+# and to the right that is the larger number number there is no number need to be sort
 
-def qucik_sort(a_list):  # complexity is nlog(n) for best case, and n^2 for worse case
+def quick(a_list):  # complexity is n*log(n) for best case, and n^2 for worse case
     run = 0
     for i in a_list:
         run += 1
@@ -258,22 +258,45 @@ def merge(list1, list2):
 '''
 
 
-def mergesort(alist):
+def merge_sort(alist):
     if len(alist) < 2:
         return alist
     else:
         mid = len(alist) / 2
-        left = mergesort([alist[:mid]])
-        right = mergesort([alist[mid:]])
+        left = merge_sort([alist[:mid]])
+        right = merge_sort([alist[mid:]])
         return merge(left, right)
 
-# complexity is O(nlog(n)) for worst case and O(n) for the best case
+# complexity is O(n*log(n)) for worst case and O(n) for the best case
 
 '''
-binary search(aList,svalue):
+binary search(aList,value):
+binary tree
 
 
 '''
+
+
+def add(tree, value):
+    if tree is None:
+        return {'data': value, 'left': None, 'right': None}
+    elif value < tree['data']:
+        tree['left'] = add(tree['left'], value)
+        return tree
+    elif value > tree['data']:
+        tree['right'] = add(tree['right'], value)
+        return tree
+    return tree
+
+
+def display(tree):
+    if tree is None:
+        print ''
+    display(tree['left'])
+    print tree['data']
+    tree = None
+    display(tree['right'])
+    print tree
 
 
 
