@@ -331,3 +331,38 @@ for d in list:
 
 print find_maximum(tree)
 print height(tree)
+
+'''
+Binary search tree
+1) [40,20,17,54,72,1,9]*
+				40
+			20		54
+		17				72
+	1
+		9
+unblanced tree, because the length isn't the same
+*: have to arrange by order(from 0 to end ), if less, go to left else right
+
+2) [60,54,20,59,24,80]
+--> is the balanced tree, there are tree of height in the tree
+the complexity is O(log(n))
+
+3) [10,20,40,60,80]
+--> is a straight line to the right and the left is None
+the complexity is O(n)
+
+**: assume that they are not the same number in the binary tree
+'''
+
+# count the selected information from the BST and each 'data' is the linked list
+def countPDFs(tree):
+    if tree == None:
+        return 0
+    elif tree['data'][0] == 'pdf':
+        val = 1
+    else:
+        val = 0
+    return val + countPDFs(tree['left']) + countPDFs(tree['right'])
+
+
+countPDFs(tree)
