@@ -381,7 +381,7 @@ BST: data base index, find things rapidly
 
 binary number:
 145 - base 10
-	1* 10^2  4*10^1 5*10^0
+    1* 10^2  4*10^1 5*10^0
 
 110 - base 2
 1*2^2  1*2^1  0*2^0
