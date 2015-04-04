@@ -387,4 +387,14 @@ binary number:
 1*2^2  1*2^1  0*2^0
 
 
+
+Tree Traversals
+1. preorder
+Beginning from the rooted to the left subtree and then to the right subtree, from top,which is the general category to the specific category
+
+2. in order
+beginning from the left child to the right child, if None, go to the root until there is no more for raising
+
+3. post order
+like merge, go to left and right at the same time
 '''
