@@ -100,6 +100,15 @@ def recursive_function(n):
     return num
 
 
+# edit by florije
+def recursive_function(n):
+    if n <= 1:
+        print 1
+    else:
+        recursive_function(n - 1)
+        print n
+
+
 # recursive_function(10)
 
 # 2 recursive multiplication
