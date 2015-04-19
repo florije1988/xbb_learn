@@ -100,7 +100,7 @@ def recursive_function(n):
     return num
 
 
-recursive_function(10)
+# recursive_function(10)
 
 # 2 recursive multiplication
 def recursive_mul(x, y):
@@ -176,7 +176,7 @@ def ack(m, n):
         return ack(m - 1, ack(m, n - 1))
 
 
-#print ack(3, 2)
+print ack(3, 2)
 # ?? how to recursive to get that answer
 
 
