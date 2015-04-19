@@ -1,0 +1,35 @@
+
+Chapter 1
+page 8
+*   Web server Gateway Interface: (WSGI)an instance of the imported Flask class
+*   Never save application file as flask.py
+*   1. Flask can be installed using pip or easy_install globally
+*   2. virtualenv manages this in separate environments and does not let a wrong version of any library affect any application
+* 1~2 (diff.) the version & library & application
+
+Termial task:
+    $ pip install -U flask # flask (Werkzeug, Jinja2, itsdangerous and markupsafe) 5 in total
+
+    $ deactivate # the installation of virtualenvwrapper should be done at global level
+
+    $ workon flask # to activate an existing virtualenv using virtualenvwrapper
+
+`` permission denied: use 'sudo' in th front
+
+!! stop at page 10 termianl work
+
+run our application in the debug mode
+    app = Flask(__name__)
+    appp.config['debug'] = True
+
+* from a python configuration file(*.cfg) import specific one
+    app.config.from_pyfile('myconfig.cfg')
+    app.config.from_object(__name__)    # form an object
+    app.config.from_envvar("PATH_TO_CONFIG_FILE") # from the environment varible
+* default setting for the config here
+    app = Flask(__name__)
+    DEBUG = True
+    TESTING = True
+    app.congfig.from_object(__name__)
+    app.config.from_pyfile('/path/to/config/file')
+* each mode can have several different configuration setting, and sme setting will remain the same (class-based)

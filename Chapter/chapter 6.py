@@ -41,7 +41,7 @@ def repeat_value():
 
 # repeat_value()
 # ? different between random.randint() & random.randrange() & random/uniform()
-#  http://blog.sina.com.cn/s/blog_470302440100ev9e.html
+# http://blog.sina.com.cn/s/blog_470302440100ev9e.html
 '''
 page 213 checkpoint
 6.1 the value returning can return the value back to the result of function for displaying or passing the value to
@@ -80,7 +80,7 @@ def cal():
     print 'd', d
     return square_root_number
 
-#cal()
+# cal()
 '''
 page 227 checkpoint
 6.14 import math
@@ -211,10 +211,12 @@ def is_prime(one_num):
         return True
     return False
 
+
 # 9. Prime Number List
 def if_is_prime():
-    random_number = random.randrange(1,100)
-    return is_prime(one_num = random_number)
+    random_number = random.randrange(1, 100)
+    return is_prime(one_num=random_number)
+
 
 if_is_prime()
 # 10. Future Value
@@ -222,22 +224,28 @@ def future_value():
     P = float(raw_input('input P number: '))
     i = float(raw_input('input i number: '))
     t = float(raw_input('input t number: '))
-    return  P * (1+i)**t
-print 'The furure value is: ',future_value()
+    return P * (1 + i) ** t
+
+
+print 'The furure value is: ', future_value()
 # 11. Random Number Guessing Game
 def guessing_game():
+    import random
+
     input_number = int(raw_input('Input number: '))
-    random_num = random_num()
+    random_num = random.randint(1, 100)
     if input_number < random_num:
         print 'Too low, try again.'
     elif input_number > random_num:
         print 'Too high, try again.'
     else:
         return True
+
+
 guessing_game()
 # 12. Rock, Paper, Scissors Game
 def random_RPS():
-    random_num = random.randint(1,3)
+    random_num = random.randint(1, 3)
     if random_num == 1:
         flag = 'Rock'
     elif random_num == 2:
@@ -247,6 +255,7 @@ def random_RPS():
     else:
         flag = 'error'
     return flag
+
 
 def game():
     flag1 = raw_input('Please input “rock”, “paper”, or “scissors”: ')
@@ -270,6 +279,8 @@ def game():
             return 'computer win'
     else:
         return False
+
+
 game()
 
 
