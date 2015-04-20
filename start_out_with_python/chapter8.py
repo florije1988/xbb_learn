@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 __author__ = 'kiwi'
-print 'Chapter 8 '
+print 'start_out_with_python 8 '
 import os
 
 
