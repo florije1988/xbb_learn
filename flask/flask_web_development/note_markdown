@@ -50,8 +50,43 @@
     'hello'
     >>> app_ctx.pop()
     
+*   set a cookie in it 
     
+        from flask import make_response 
+        @app.route('/')
+        def index():
+            response = make_response('<h1>This document carries a cookie!</h1>')
+            response.set_cookie('answer','42')
+            return response 
+        
+*   error and return, abort function used for error handling
     
+        from flask import redirect 
+        @app.route('/')
+        def index():
+            return redirect('http://www.example.com')
+            
+        from flask import abort 
+        @app.route('/user/<id>')
+        def get_user(id):
+            user = load_user(id)
+            if not user:
+                abort(404)
+            return '<h1>Hello,%s</h1>'  % name
+            
+*   the extention install with pip 
+    
+        (venv) $ pip install flask-script
+    
+        from flask.ext.script import Manager 
+        manager = Manager(app)
+        
+        #...
+        
+        if __name__ == '__main__':
+            manager.run()
+
+
 +   Flask supports these types of URLs using a special syntax in the route decorators: int, float, and path for routes 
 
 +   If the URL from typing that the application will not know how to handle it and will return an error code 404 to the browser - a web page that does not exist 
@@ -71,6 +106,8 @@
 +   before_first_request, before_request, after_request, teardown_request
 
 +   a common pattern to share data between request hook functions and view functions is to use the g context global 
+
++ flask extension -> 
 
 
 ||||
