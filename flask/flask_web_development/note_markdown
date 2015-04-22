@@ -1,0 +1,131 @@
+#Part I Introduction o flask
+###1.installation 
+###2. Basic application structure
+*   the application instance is an object of class **Flask**
+
+        from flask import Flask 
+        app = Flask(__name__)
+    
+*   a route is declared using this decorate. 400 here is the status code 
+
+        from flask import request
+        @app.route('/')
+        def index():
+            return '<h1>Hello World!</h1>', 400
+    
+*   check the version of the virtualenv 
+
+        $ virtualenv --version 
+        
+*   any URLs that match the static portions will be mapped to this route (name is the dynamic argument)
+
+        @app.route('/user/<name>')
+        def user(name):
+            return '<h1>Hello,%s</h1>'  % name
+            
+*   The application instance has a run method that launches Flask's integrated development we servers (the code is python idiom)
+
+        if __name__ == '__main__':
+            app.run(debug=True)
+        
+*   check out the version of the application form cloned te application's Git repository on GitHub
+        
+        $ git checkout2a
+        
+*   request cannot be a global variable if you consider that in a multi-threaded server the threads are working on different requests from different clients at the same time  
+        
+        user_agent = request.headers.get('User-Agent')
+        return '<p>Your browser is %s</p>' % user-agent 
+    
+*   what is the hello, app and current_app
+    
+    >>> from hello import app
+    >>> from flask import current_app 
+    >>> current_app.name 
+    Traceback(most recent call last):
+    ...
+    RuntimeError: working outside of application context
+    >>> app_ctx = app.app_context()
+    >>> app_ctx.push()
+    'hello'
+    >>> app_ctx.pop()
+    
+    
+    
++   Flask supports these types of URLs using a special syntax in the route decorators: int, float, and path for routes 
+
++   If the URL from typing that the application will not know how to handle it and will return an error code 404 to the browser - a web page that does not exist 
+
++   When Flask receives a request from a client, it needs to make a few objects available to the view function that will handle it. 
+
++   request object: encapsulates the HTTP request sent by the client 
+
++   @app.route('/') avoid cluttering view functions with lots of arguments that may or may not needed, Flasks uses contexts to temporarily make certain objects globally accessible
+
++   Flask builds this mao using the app.route decorators or the equivalent non-decorator version app_url_rule()
+
++   the HEAD, OPTIONS, GET elements shown in the URL mao are the request methods 
+
++   request hooks are implemented as decorators 
+
++   before_first_request, before_request, after_request, teardown_request
+
++   a common pattern to share data between request hook functions and view functions is to use the g context global 
+
+
+||||
+|---|:---:|---|
+|Variable name|Context|Description|
+|current_app|Application context| The application instance for the active application|
+|g|Application context|An object that the application can use for temporary storage during the headling of a request. This variable is reset with each request.|
+|request|Request context|The request object, which encapsulates the content of a HTTP request sent by the client|
+|session|Request context| The user session, a dictionary that the application can use to store values that are "remembered" between requests|
+
+
+
+
+
+3. Templates
+    
+    
+    
+    
+**Definition**
+Decorator: a standard feature of the python language, which can modify the behavior of a function different ways  
+
+Response: the return value of this function. If the client is a web browser, the response is the document that is 
+displayed to the user. 
+
+View functions: e.x. functions like index() 
+
+Thread: the smallest sequence of instructions that can be managed independently
+
+status code: part of HTTP response, which Flask by default sets to 200, the code that indicates that the request was carried out sucessfully 
+(HTTP pro-control requires more than a string as a response to a request)
+
+
+
+Question: 
+1. client: The client part keeps the same API as Flask-OAuth. The only changes are the imports:
+        from flask_oauthlib.client import OAuth
+2. what is the hello, app, flask and current_app 
+        >>> from hello import app
+        >>> from flask import current_app 
+        >>> current_app.name 
+        Traceback(most recent call last):
+        ...
+        RuntimeError: working outside of application context
+3. 
+
+
+
+
+
+
+
+
+
+
+
+
+
