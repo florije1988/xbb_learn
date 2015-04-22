@@ -1,5 +1,9 @@
 #Part I Introduction o flask
 ###1.installation 
+
+***
+
+
 ###2. Basic application structure
 *   the application instance is an object of class **Flask**
 
@@ -107,8 +111,17 @@
 
 +   a common pattern to share data between request hook functions and view functions is to use the g context global 
 
-+ flask extension -> 
-
++ flask extension -> other optional arguments 
+    --h, --help show this help message adn exit 
+    -t HOST,  --host HOST
+    -P port,  --port PORT
+    --threaded
+    --processes PROCESSES
+    --passthrough-errors
+    -d, --no-debug
+    -r, --no-reload
+    The --host argument is a useful option because it tells the web server what network interface to listen to for connections from clients 
+    
 
 ||||
 |---|:---:|---|
@@ -119,15 +132,10 @@
 |session|Request context| The user session, a dictionary that the application can use to store values that are "remembered" between requests|
 
 
-
-
-
-3. Templates
     
     
     
-    
-**Definition**
+###**Definition**
 Decorator: a standard feature of the python language, which can modify the behavior of a function different ways  
 
 Response: the return value of this function. If the client is a web browser, the response is the document that is 
@@ -142,7 +150,7 @@ status code: part of HTTP response, which Flask by default sets to 200, the code
 
 
 
-Question: 
+####Question: 
 1. client: The client part keeps the same API as Flask-OAuth. The only changes are the imports:
         from flask_oauthlib.client import OAuth
 2. what is the hello, app, flask and current_app 
@@ -152,11 +160,29 @@ Question:
         Traceback(most recent call last):
         ...
         RuntimeError: working outside of application context
-3. 
+3. page 38 with these changes, the application acquires a basic set of command-line options. Running hello.py now shows a usage message:
+        
+    $ python hello.py 
+    useage: hello.py [-h] {shell,runserver} ...
+    
+    positional arguments:
+        {shell,runserver}
+            shell       Runs a python shell inside Flaks application context 
+            runserver   Runs the Flask development server i.e. app.run()
+
+****
 
 
+###3. Templates
+The Jinja2 template Engine 
+    <h1>Hello,{{name}}!</h1>    #emplates/user.html: Jinja2 template 
+    
 
 
+###**Definition**
+ Business logic (presentation logic): view function needs to talk to the database to get the new user added and then generate a response to send back to the browser
+
+####Question: 
 
 
 
