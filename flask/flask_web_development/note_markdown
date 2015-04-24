@@ -243,11 +243,40 @@ engine that the value that goes in that place should be obtained from data provi
         
         {% include 'common.html' %}
 
++   reuse is through template ingeritance --> class inheritance in python code 
 
-
-
-
-˚
+        <html>
+        <head>
+            {% black head %}
+            <title>{% black title %}{% endblock %} - My Application</title>
+            {% endblock %}
+        </head>
+        <body>
+            {% block body %}
+            {% endblock %}
+        </body>
+        </html>
+        
+        {% extends "nbase.html" %}
+        {% block title %}Index{% endblock %}
+        {% block head %}
+            {{super()}}
+            <style>
+            </style>
+        {% endblock %>
+        {% blockbody %}
+        <h1>Hello,World!</h1>
+        {% endblock %}
+        
+Twitter Bootstrap Integration with Flask-Bootstrap
++   Boostrao is a client-side framework, so server is not directly involved with it 
++   install flask-Bootstrap
+        
+        (venv) $ pip install flask-bootstrap
+        
+        from flask.ext.bootstrap import Bootstrap
+        # ...
+        bootstrap = Bootstrap(app)
 
 ###**Definition**
  Business logic (presentation logic): view function needs to talk to the database to get the new user added and then generate a response to send back to the browser
@@ -256,7 +285,7 @@ engine that the value that goes in that place should be obtained from data provi
 1.  |striptags|removes any html tags from the value before rendering |
 2.  In variables, what happen if we need more than two, such as trim and capitalized ???
 3.  {% include 'common.html' %} what does this code return T or F ? 
-
+4. reuse is through template ingeritance --> class inheritance in python code  --> how does it runs, how diff 
 
 
 
