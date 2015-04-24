@@ -174,16 +174,88 @@ status code: part of HTTP response, which Flask by default sets to 200, the code
 
 
 ###3. Templates
-The Jinja2 template Engine 
-    <h1>Hello,{{name}}!</h1>    #emplates/user.html: Jinja2 template 
-    
++   The Jinja2 template Engine 
 
+        <h1>Hello,{{name}}!</h1>    #emplates/user.html: Jinja2 template 
++   Templates subfolders located inside the application folder 
++   The function render_template provided by Flask integrates the Jinja2 template engine with the application   
+    (The name on the left side used fin the placeholder written in the template. The name on the right side is a variable in the current scope that provide value for the argument of the same name )
+
+        from flask impoer Flask, render_template 
+        #...
+        @app.route('/index')
+        def index():
+            return render_template('index.html')
+        
+        @app.route('/user/<name>')
+        def user(name):
+            return render_template('user.html',name=name)
+            
+Variables 
++   The {{name}} construct used in the template refernces a variables, a special placeholder that tells the template 
+engine that the value that goes in that place should be obtained from data provided from data provided at the time the template is rendered
++   Variables can be modifies with filters
+        Hello, {{name|capitalized}}
+
+|||
+|---|:---:|
+|safe|renders the value without applying escaping|
+|capitalize/lower/upper/|convert the value into lower/upper case or convert the first one is the upper and the rest are lower case|
+|title|capitalized each word in value|
+|trim|strip|
+|striptags|removes any html tags from the value before rendering |
+
+
++   control statement 
+
+        {%  if user%}
+            Hello, {{user}}!
+        {% else %}
+            Hello, stranger!
+         {% endif %}
+         
++   render a ist of element **
+   
+         <ul>
+             {% for comment in comments %}
+                <li>{{commeny}}</li>
+             {% endfor %}
+        </ul>
+        
++   support macro, same as function in python 
+    
+         {% macro render_comment(comment)%}
+            <li>{{comment}</li>
+         {% endmacro %}
+         
+         <ul>
+             {% for comment in comments %}
+                <li>{{commeny}}</li>
+             {% endfor %}
+        </ul>
+        
++   stored in a standard aloned file them imported from all the emplates taht need them 
+        
+        {% import 'macro.html' as macros %}
+        **
+
++   proportions of template code that need to be repeated in several places can be stored in a separate file and included from all the templates for all the templates to avoid repetition
+        
+        {% include 'common.html' %}
+
+
+
+
+
+˚
 
 ###**Definition**
  Business logic (presentation logic): view function needs to talk to the database to get the new user added and then generate a response to send back to the browser
 
 ####Question: 
-
+1.  |striptags|removes any html tags from the value before rendering |
+2.  In variables, what happen if we need more than two, such as trim and capitalized ???
+3.  {% include 'common.html' %} what does this code return T or F ? 
 
 
 
