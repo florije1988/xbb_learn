@@ -401,7 +401,8 @@ Twitter Bootstrap Integration with Flask-Bootstrap
 +   The fromnow() render style shown in the second line renders a relative timestamp and automatically refreshes is as time passes 
 
         $git checkout 3e 
-+   Flask-Moment implements the format(), fromNow(),fromTime().calendar(),valueOf(),unix() methods from moment.js
++   Flask-Moment implements the format(), fromNow(),fromTime().calendar(),valueOf(),unix() methods from moment.js 
++   [moment.js](http://momentjs.com/)
 +   The timestamps rendered by Flask-Moment can e localized to many languages by passing the language code to function lang():
         
         {{moment.lang('es')}}
@@ -422,8 +423,14 @@ Twitter Bootstrap Integration with Flask-Bootstrap
 9.  Dynamic URLs need to be exited or not ??
 10. The format('LLL') format renders the date and time according to the time zone and local settings in the client computer电脑设置时间不是网上的时间的意思么
 
+---
 
+### chapter4 Web Forms
 
++    
 
+###**Definition**
 
+Flask-WTF extension: a Flask integration wrapper around the framework-agnostic WTFForms package 
 
+####Question: 
