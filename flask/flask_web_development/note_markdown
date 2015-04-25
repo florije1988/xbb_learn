@@ -277,6 +277,9 @@ Twitter Bootstrap Integration with Flask-Bootstrap
         from flask.ext.bootstrap import Bootstrap
         # ...
         bootstrap = Bootstrap(app)
+        
+        $git checkout 3a
+        
 +   Flask-Bootstrap is imported from the flask.ext name-space and initialized by passing the application instance in the constructor 
 +   templates/user.html: Template that uses Flask-Bootstrap
         
@@ -308,6 +311,9 @@ Twitter Bootstrap Integration with Flask-Bootstrap
                 <h1>Hello,{{name}}!</h1>
             </div>
             {% endblock %}
+            
+        $git checkout 3b
+        
 +   The block and endblock directives define blocks of content that are added to the base template, title, navbar, and content  
 
 |||
@@ -345,9 +351,61 @@ Twitter Bootstrap Integration with Flask-Bootstrap
             <h1>Not found</h1>
         </div>
         {% endblock %>
+        
+        $git checkout 3c
+        
 +   link: flask provides the url_for() helper function, which generates URLs from the information stored in the application's URL map 
 +   view function name (or endpoint name for routes defined with app.add_url_route() as its single argument and returns its URL)
-+   
++   Dynamic URLs can be generated with url_for() by passing the dynamic parts as key-word arguments -- url_for('user',name='john',_external= True)  would return http://localhost:5000/user/john
++   static files: use static files such as images, JavaScript source files, and CSS that are referenced from the HTML code
+        
+        url_for('static', filename='css/styles.css',_external=True) 
+        return /
+        >>> http://localhost:5000/static/css/styles.css
+        
++   templates/base.html: favicon definition
+        
+        {% block head %}
+        {{super()}}
+        <link rel='shortcut icon' href="{{url_for('static',filename='favicon.ico')}}"
+        type="image/x-icon">
+        {% endblock %}
+        
+        $git checkout 3d
+        
++   localization of Dates and Times with Flask-Moment: The server needs uniform time units that are independent of the location of each other, so typically Coordinated Universal Times(UTC) is used
++   Flask-moment is an extension for Flask applications that integrates moment.js
+        
+        (venv) $ pip install flask-moment
+        
+        from flask.ext.moment import Moment
+        moment = Moment(app)
+        
+        {% block scripts %}
+        {{super() }}
+        {{momment.include_moment() }}
+        {% endblock %}
+        
++   zdd a detetime variable in hello.py
+
+        @app.route('/')
+        def index():
+            return render_template('index.html',current_time=datetime.utcnow())
+            
++   current_time is rendered in the template 
+    
+        <p>The local and time is {{moment(current_time).format('LLL')}}.</p>
+        <p>That was {{moment(current_time).formnow(refresh=True)}}</p>
+        
++   The format('LLL') format renders the date and time according to the time zone and local settings in the client computer
++   The fromnow() render style shown in the second line renders a relative timestamp and automatically refreshes is as time passes 
+
+        $git checkout 3e 
++   Flask-Moment implements the format(), fromNow(),fromTime().calendar(),valueOf(),unix() methods from moment.js
++   The timestamps rendered by Flask-Moment can e localized to many languages by passing the language code to function lang():
+        
+        {{moment.lang('es')}}
+
 
 ###**Definition**
  Business logic (presentation logic): view function needs to talk to the database to get the new user added and then generate a response to send back to the browser
@@ -355,13 +413,14 @@ Twitter Bootstrap Integration with Flask-Bootstrap
 ####Question: 
 1.  |striptags|removes any html tags from the value before rendering |
 2.  In variables, what happen if we need more than two, such as trim and capitalized ???
-3.  {% include 'common.html' %} what does this code return T or F ? 
-4.  reuse is through template ingeritance --> class inheritance in python code  --> how does it runs, how diff 
-5.  The block and endblock directives define blocks of content that are added to the base template, what else other than template
-6.  |html_attribs|attribute inside the <html>tag| & |metas|the list of <meta> tags| what does it used for 
-7.  call url_for('index') return /. what does return / means
+3.  {% include 'common.html' %} what does this code return T or F ??
+4.  reuse is through template ingeritance --> class inheritance in python code  --> how does it runs, how diff ??
+5.  The block and endblock directives define blocks of content that are added to the base template, what else other than template ??
+6.  |html_attribs|attribute inside the <html>tag| & |metas|the list of <meta> tags| what does it used for ??
+7.  call url_for('index') return /. what does return / means  ??
 8.  url_for('index', _external= True) http://localhost:5000/  does the url has to be founds in the document so that it doesn't show the error or not ?? 
-9.  
+9.  Dynamic URLs need to be exited or not ??
+10. The format('LLL') format renders the date and time according to the time zone and local settings in the client computer电脑设置时间不是网上的时间的意思么
 
 
 
