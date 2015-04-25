@@ -257,7 +257,7 @@ engine that the value that goes in that place should be obtained from data provi
         </body>
         </html>
         
-        {% extends "nbase.html" %}
+        {% extends "base.html" %}
         {% block title %}Index{% endblock %}
         {% block head %}
             {{super()}}
@@ -277,6 +277,77 @@ Twitter Bootstrap Integration with Flask-Bootstrap
         from flask.ext.bootstrap import Bootstrap
         # ...
         bootstrap = Bootstrap(app)
++   Flask-Bootstrap is imported from the flask.ext name-space and initialized by passing the application instance in the constructor 
++   templates/user.html: Template that uses Flask-Bootstrap
+        
+        {% extends "bootstrap/base.html" %}
+        {% block title %}Flasky{% endblock %}
+        {% block navbar %}
+        <div class = "navbar nabar-inverse" role = "navigation">
+            <div class = "navbar-header">
+                <button type = "button" class = "navar-toggle"
+                data-toggle= "collapse" data-target = ".navbar-collapse">
+                    <span class = "sr-only">Toggle navigation</span>
+                    <span class = "icon-bar"></span>
+                    <span class = "icon-bar"></span>
+                    <span class = "icon-bar"></span>
+                    </botton>
+                    <a class = "nav-brand" href = "/">Flasky</a>
+                </div>
+                <div class = "navar-collapse collapse">
+                    <ul class = "nav navbar-nav">
+                        <li><a href = "/">HOme</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {% endblock %}
+        {% block content %}
+        <div class = "container">
+            <div class = "page-header">
+                <h1>Hello,{{name}}!</h1>
+            </div>
+            {% endblock %}
++   The block and endblock directives define blocks of content that are added to the base template, title, navbar, and content  
+
+|||
+|---|:---:|
+|Block name|Description|
+|doc|Teh entire HTML document|
+|html_attribs/ body attribs|attribute inside the <html>tag|
+|html/head/title/body|content of the tag|
+|metas|the list of <meta> tags|
+|styles|Cascading stylesheet definitions|
+|navbar|user-defined navigation bar|
+|content|user-defined page content|
+
+|scripts|Javascript declarations at the bottom of the document|
++   the scripts block would need to be written in the derived template to add a new Javascript file to the document
+        {% block scripts %}
+        {{ super() }}
+        <scrupt type="text/javascript" src="my-scripts.js"></script>
+        {% endblock %}
++   custom Error Pages
+    -   404 triggered when teh client requests a page or route that is now known
+    -   500 triggered when there is an unhandled exception
+        
+        @app.errorhandler(404)
+        def page_out_found(e):
+            return render_template('404_html'),404
+        # same as 500
+          
++   custom code 404 error 
+    
+        {% extends "base.html" %}
+        {% block title %}-Page Not Found{% endblock %}
+        {% block page_content %}
+        <div class = "page-header">
+            <h1>Not found</h1>
+        </div>
+        {% endblock %>
++   link: flask provides the url_for() helper function, which generates URLs from the information stored in the application's URL map 
++   view function name (or endpoint name for routes defined with app.add_url_route() as its single argument and returns its URL)
++   
 
 ###**Definition**
  Business logic (presentation logic): view function needs to talk to the database to get the new user added and then generate a response to send back to the browser
@@ -285,8 +356,12 @@ Twitter Bootstrap Integration with Flask-Bootstrap
 1.  |striptags|removes any html tags from the value before rendering |
 2.  In variables, what happen if we need more than two, such as trim and capitalized ???
 3.  {% include 'common.html' %} what does this code return T or F ? 
-4. reuse is through template ingeritance --> class inheritance in python code  --> how does it runs, how diff 
-
+4.  reuse is through template ingeritance --> class inheritance in python code  --> how does it runs, how diff 
+5.  The block and endblock directives define blocks of content that are added to the base template, what else other than template
+6.  |html_attribs|attribute inside the <html>tag| & |metas|the list of <meta> tags| what does it used for 
+7.  call url_for('index') return /. what does return / means
+8.  url_for('index', _external= True) http://localhost:5000/  does the url has to be founds in the document so that it doesn't show the error or not ?? 
+9.  
 
 
 
