@@ -425,12 +425,164 @@ Twitter Bootstrap Integration with Flask-Bootstrap
 
 ---
 
-### chapter4 Web Forms
+### Chapter4 Web Forms
 
-+    
+        (venv) $ pip install flask-wtf
++   Cross-Site Request Forgery (CSRF) protection -- Flask-WTF protects all forms against Cross-Site Request Forgery (CSRF) attacks. 
++   A CSRF attack occurs when a malicious website sends requests to a different website on which the victim is logged in 
+        
+        app=Flask(__name__)
+        app.config['SECRET_KEY'] = 'hard to get string'
++   Form Classes: When using Flask-WTF, each web form is represented by a class that inherits from class Form 
+    
+        from flask.ext.wtf import form 
+        from wtforms import StringField, SubmitField 
+        from wtforms.validators import Required 
+        
+        class NameForm(Form):
+            name = StringField('What is your name?',validators=[Required()])
+            submit = SubmitField('Submit')
++   The submitField class represents an <input> element 
++   The Required() validator ensures that the field is not submitted empty 
++   To improve the look of the form, any arguments sent into the calls that render the fields are converted into HTML attributes for the field
+        
+        <form method = "POST">
+            {{form.name.label}}{{form.name(id='my-text-field')}}
+            {{form.submit()}}
+        </form>
 
+|||
+|---|:---:|
+|Field| type Description|
+|StringField |Text field|
+| TextAreaField |Multiple-line text field|
+|PasswordField| Password text field|
+|HiddenField| Hidden text field|||DateField |Text field that accepts a datetime.date value in a given format|
+|DateTimeField| Text field that accepts a datetime.datetime value in a given format|
+|IntegerField |Text field that accepts an integer value|
+|DecimalField| Text field that accepts a decimal.Decimal value|
+|FloatField Text| field that accepts a floating-point value|
+|BooleanField |Checkbox with True and False values|
+|RadioField| List of radio buttons|
+|SelectField| Drop-down list of choices|
+|SelectMultipleField| Drop-down list of choices with multiple selection|
+|FileField| File upload field|
+|SubmitField| Form submission button|
+|FormField |Embed a form as a field in a container form|
+|FieldList| List of fields of a given type|
+
+|||
+|---|:---:|
+|Validator| Description|
+|Email| Validates an email address|
+|EqualTo |Compares the values of two fields; useful when requesting a password to be entered twice for confirmation|
+|IPAddress| Validates an IPv4 network address|
+|Length |Validates the length of the string entered|
+|NumberRange| Validates that the value entered is within a numeric range|
+|Optional| Allows empty input on the field, skipping additional validators|
+|Required| Validates that the field contains data|
+|Regexp| Validates the input against a regular expression|
+|URL| Validates a URL|
+|AnyOf |Validates that the input is one of a list of possible values|
+|NoneOf| Validates that the input is none of a list of possible values|
+
+
++   Flask-Bootstrap provides a very high-level helper function that renders an entire Flask-WTF form using Bootstrap's predefined form styles 
+        
+        {% import "bootstrap/wtf.html" as wtf %}
+        {{wtf.quick_form(form)}}
+        
++   templates/index.html: Using Flask-WTF and Flask-Bootstrap to render a form 
+    
+        {% extends "base.html" %}
+        {% import "bootstrap/wtf.html" as wtf %}
+        
+        {% black title %}Flasky{% endblock %}
+        
+        {% block page_content %}
+        <div class="page-header">
+            <h1>Hello,{% if name %}{{name}}{% else %}Stranger{% endif %}</h1>
+        </div>
+        {{wtf.quick_form(form)}}
+        {% endblock %}
++   Form Handling in View Functions 
+        
+        @app.route('/',methods=['GET','POST'])
+        def index();
+        name = None
+        form = NameForm()
+        if form.validate_on)submit():
+            name = form.name.data
+            form.name.data = ''
+        return render_template('index.html',form=form,name=name)
++   The methods argument added to the app.route decorator tells Flask to register the view function as handler for GET and POST requests in the URL mao 
++   When methods is not given, the view function is registered to handle GET requests only 
++   POST: form submissions, GET: no body compare to post
++   The validate_on_submit()method of the form returns True when the form was submitted and the data has been accepted by all the field validators 
++   When a user navigates to the application for the first time, the server will reveive a GET request with no form data 
++   The call to validate_on_submit() invokes the Required() validators attched to the name field. If the name is not empty, then the validator accepts it and validate_on_submit() returns 
+   
+        git check out version 4a
++   Redirects and User sessions: never leave a POST request as a last request sent by the browser Post/Redirect/Get pattern
++   Applications can 'remember' things from one request to the next by storing them in the user session, private storage that is available to each connected client 
++   user sessions are stored in client-side cookies that are cryptographically signed using the configured SECRET_KEY
+
+        from flask import Flask,render_template,session,redirect,url_for
+        def index():
+            from = NameForm()
+            if form.validate_on_submit():
+                session['name']=form.name.data
+                return redirect(url_for('index'))
+            return render_template('index.html',form=form,name=session.get('name'))
++   a local name variable was used to store the name entered by the user in the form 
++   redirect(), a helper function that generates the HTTP redirect response 
++   the first and only required argument to url_for() is thr endpoint name 
++   get() retutns a default value of NOne for a missing key 
+        
+        check out 4b for this version 
+        
++   Message Flashing: an update after a request is comlpeted 
+        
+        from flask import Flask,render_template, session,redirect, url_for,flash
+        
+        @app.route('/',method=['GET','POST'])
+        def index():
+            form=NameForm()
+            if form.validate_on_submit():
+                olf_name=session.get('name')
+                if old_name is not None and old_name != form.name.data:
+                    flash('Look like you have changed your name!')
+                session['name']=form.name.data
+                form.name.data=''
+                return redirect(url_for('index'))
+            return render_template('index.html')
+                form = form,name = session.get('name')
++   flash() function is invoked with a message to be displayed on the next response sent back to the client 
++   render flashed message is the base template, because tat will enable these message in al pages 
++   get_flashed_message() function retrieve the message and render them 
+        
+        {% black content %}
+            {% for message in get_flashed_message() %}
+            <div class='alert alert-warning'>
+                <button type='button' class='close' data-dismiss='alert'>&times;</button>
+                {{message}}
+            </div>
+            {% endof %}
+            
+            {% block page_content %}{% endblock %}
+        </div>
+        {% endblock %}
++   each time flash() was called in the previous request cycle 
++   from get_flashed_message() will note be returned the next time this function is called, so flashed message appear only once and are then discarded 
+
+        check out version at 4c 
+    
 ###**Definition**
 
 Flask-WTF extension: a Flask integration wrapper around the framework-agnostic WTFForms package 
+Session: standard Python dictionary 
+
 
 ####Question: 
+
+
