@@ -78,7 +78,7 @@
                 abort(404)
             return '<h1>Hello,%s</h1>'  % name
             
-*   the extention install with pip 
+*   the extension install with pip 
     
         (venv) $ pip install flask-script
     
@@ -177,7 +177,7 @@ status code: part of HTTP response, which Flask by default sets to 200, the code
 +   The Jinja2 template Engine 
 
         <h1>Hello,{{name}}!</h1>    #emplates/user.html: Jinja2 template 
-+   Templates subfolders located inside the application folder 
++   Templates sub-folders located inside the application folder 
 +   The function render_template provided by Flask integrates the Jinja2 template engine with the application   
     (The name on the left side used fin the placeholder written in the template. The name on the right side is a variable in the current scope that provide value for the argument of the same name )
 
