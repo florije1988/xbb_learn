@@ -586,3 +586,25 @@ Session: standard Python dictionary
 ####Question: 
 
 
+### Chapter5 Databases 
++   Relational databases store data in tables, which model the different entities in the application's domain 
++   NoSQL databases: do not follow the relational model. data base uses collections and documents, faster querying 
++   A database with this structure has the role name explicitly stored with each other 
++   Abstraction layers (object-relational mappers)(ORMs) or object-doment mappers(ODMs), provide transparent conversion of high-level object-oriented operations into low-level database instructions
++   choose a database abstraction layer that provides optional access to the underlying database in case specific operations need to be optimized by implementing them directly as native database instructions 
++   Flask-SQLAlchemy ports several database backends, high-level ORM and low level access to the database's native SQL functionality 
+        
+        (venv) $ pip install flask-sqlalchemy 
+        
+###**Definition**
+SQL database: A database stores application data in an organized way. Teh application then issues queries to retrieve specific portions as they are needed 
+NoSQL database: documeny-oriented and key-value databases
+Primary key: tables have a special column, holds a unique identifier for each row stored in the table 
+Foreign Key: reference the primary key of another row from the same or another table 
+denormalization : the result of applying an operation reduces the number of tables at the expense of data duplication 
+
+
+####Question: 
+
+
+page 73 
