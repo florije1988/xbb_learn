@@ -38,6 +38,8 @@ def get_user(id):
         abort(404)
     return '<h1>Hello,%s</h1>' % name
 
+
+
 # for extension
 from flask.ext.script import Manager
 manager = Manager(app)
