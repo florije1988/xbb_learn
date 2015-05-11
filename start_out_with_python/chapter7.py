@@ -6,6 +6,7 @@ import random
 print 'chapter7'
 # 'a' is append, If the file already exists, it will not be erased. If the file does not exist, it will be
 # created. • When data is written to the file, it will be written at the end of the file’s current contents.
+'''
 def main():
     new_file = open(r'new_file.txt', 'a')  # r' raw string
     new_file.write('Hello!\nHI!\n')  # write data in file  #? doesn't appear as the new line
@@ -17,6 +18,7 @@ def main():
     print 'readlines', new_file.readlines(), '\n'
     new_file.read().strip('\n')  # delete the string of new line
     print new_file.readlines()
+'''
 
 # main()
 
@@ -36,6 +38,8 @@ checkpoint page 256
 '''
 # read the file by while loop: while != '':
 # for i in readlines:
+
+'''
 def write_file():
     new_file = open('new_file.txt', mode='w')
     statu = True
@@ -48,6 +52,7 @@ def write_file():
     new_file.close()
 
 
+
 # write_file()
 def read_file():
     file_read = open('new_file.txt', mode='r')
@@ -56,6 +61,7 @@ def read_file():
         print int(line)
         line = file_read.readline()
     return None
+'''
 
 # read_file()
 # ? cannot stop, infinity loop here why??
@@ -138,7 +144,7 @@ def calculation():
 # ? cannot execute
 # calculation()
 
-
+'''
 def error_open_file():
     try:
         get_file = open('niew.txt', 'w')
@@ -150,7 +156,7 @@ def error_open_file():
         print 'this is finally'
 
 # error_open_file()
-'''
+
 page 289 checkpoint
 7.16 raise the exception for the error for continueing executing
 7.17 the program would stop runnning by showing the error keyword
