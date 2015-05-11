@@ -41,11 +41,11 @@ class coin_flip:
 
 
 def main():
-    my_coin = coin_flip()   # an object is created in memory from the coin_flip class, __init__ is executes
+    my_coin = coin_flip()  # an object is created in memory from the coin_flip class, __init__ is executes
     print 'the side is up: %s' % my_coin.get_sideup()
     print 'tossing '
     my_coin.toss()
-    print 'The side is: %s'  % my_coin.get_sideup()
+    print 'The side is: %s' % my_coin.get_sideup()
 
 # main()
 
