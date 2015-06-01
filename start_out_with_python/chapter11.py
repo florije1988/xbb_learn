@@ -61,8 +61,7 @@ executing the data and the calculation internal
 The __str__ methods is also called automatically when an object is passeed as an argument to the built-in str
 function.
 
-page 442
-checkpoint
+checkpoint (page 442)
 11.5    The blueprint represent the object
 11.6    In this chapter, we use the metaphor of a cookie cutter and cookies that are made from the cookie to describe
 classes and objects. In this metaphor are objects the cookie cutter
@@ -73,7 +72,12 @@ classes and objects. In this metaphor are objects the cookie cutter
 11.11   The __str__ methods is also called automatically when an object is passeed as an argument to the built-in str
 function.
 
-instances attributes: A method uses the self parameter to create an attribute and the attributes belongs to the specific object (self references)
+
+Definition:
+Instances Attributes: A method uses the self parameter to create an attribute and the attributes belongs to the specific
+object (self references)
+Accessor method: a method returns a value from a class's attribute but does not change
+
 
 '''
 
