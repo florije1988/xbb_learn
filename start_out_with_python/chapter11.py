@@ -77,8 +77,12 @@ Definition:
 Instances Attributes: A method uses the self parameter to create an attribute and the attributes belongs to the specific
 object (self references)
 Accessor method: a method returns a value from a class's attribute but does not change
+Mutator method: A method that stores a value in a data attribute or changes the value of a data attribute in some other way
+It can control the way that a class's data attributes are modified
+Mutator methods also calls setters and accesors methods are called getters
 
 
+page 448
 '''
 
 

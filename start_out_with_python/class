@@ -1,0 +1,22 @@
+
+class coin:
+    def __init__(self):
+        self.face = '1'
+
+
+     def flip_coin(self):
+         import random
+         self.face = random.randrange(self,1,2)
+         if self.face == 1:
+            return 'head'
+         elif self.face == 2:
+             return 'tail'
+         return 'Error'
+
+     def flip_times(self,times):
+         if times is int:
+             for i in range(times):
+                 flip_coin(self)
+
+
+
