@@ -1,9 +1,8 @@
 class coin:
     def __init__(self):
         self.face = '1'
-
-    def main(self):
-        coin.flip_times()
+        run_times = raw_input('please enter the number you want to flip')
+        coin.flip_times(self, times=run_times)
 
 
     def flip_coin(self):
